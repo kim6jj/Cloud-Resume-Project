@@ -2,17 +2,6 @@
 Challenge to make a static website using HTML/CSS/Javascript with certain guidelines.
   
 FrontEnd: created an HTML static website using a template from codepen.io, purchased/registered a domain on Route53 (Created hosted zone w/ SOA NS Records). Next, created an S3 bucket (publicly readable enabling public access and bucket policy - originally had turned on static website hosting but later had to turn it off)
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::www.jjkim.net/*"
-        }
-}
 
 I uploaded static web page files all on the root (index, css, etc). I then created a Cloudfront Distro with the S3 bucket I created as the origin (created 1 with alternate CNAME for www and the actual domain). I created SSL certs for my domain to attach to my CDN to enable TLS and redirect HTTP to HTTPS. After, I created A records to in Route 53 to point www.jjkim.net and jjkim.net to the CloudFront Distribution.
 
