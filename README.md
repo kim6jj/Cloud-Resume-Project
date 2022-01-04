@@ -9,4 +9,6 @@ BackEnd: Used a python app to increment counter value and return new value. I pr
 
 AWS Code Pipeline: Instead of manually uploading latest changes to my S3 bucket, using AWS Code Commit would still require manual runs from repo to push to S3 bucket; I decided to use AWS Pipeline and connected to my GitHub repository (Rather than code commit). AWS Code Pipeline would be triggered and push all updates from my repository on Github to my S3 bucket.
 
- -- Ran into some issues as adding new files locally I'd need to add manually to git and push the updates; also after being pushed the S3, the CloudFront distro would need to be invalidated as updated S3 objects were not displaying.
+ -- After I push new code to my repository, I need to invalidate on CloudFront to read from updated S3 objects; need to mess with cache timers.
+ 
+ CloudFormation:
