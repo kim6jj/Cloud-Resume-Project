@@ -43,7 +43,7 @@ AOS.init({
               }
           });
           let data = await response.json()
-          document.getElementById("visitors").innerHTML = data['count'] + " visits.";
+          document.getElementById("visitors").innerHTML = data['0'] + data['10'] + data['11'] + data['12'] + data['13'] + " visits.";
           console.log(data);
           return data;
       } catch (err) {
