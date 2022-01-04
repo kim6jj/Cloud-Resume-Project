@@ -1,20 +1,44 @@
-async function get_visitors() {
-  // call post api request function
-  //await post_visitor();
-  try {
-      let response = await fetch('https://ncsbce05rg.execute-api.us-east-1.amazonaws.com/beta', {
-          method: 'GET',
-          headers: {
-              //'x-api-key': 'JslbDfdt1F8fl7wE4CRIj1Oqidmtmzqw4lZ539Sj',
-          }
-      });
-      let data = await response.json()
-      document.getElementById("visitors").innerHTML = data['count'] + " visits.";
-      console.log(data);
-      return data;
-  } catch (err) {
-      console.error(err);
-  }
+// GET REQUEST
+function getTodos() {
+  axios
+  .get('https://6n9mqiawsc.execute-api.us-east-1.amazonaws.com/stage-2/record', {
+    timeout: 5000
+  })
+  .then(res => {
+    console.log(res)
+    showOutput(res.data)
+  })
+  .catch(err => console.error(err));
 }
 
-get_visitors();
+// POST REQUEST
+function addTodo() {
+  console.log('addToDo - POST request')
+  axios
+    .post('https://6n9mqiawsc.execute-api.us-east-1.amazonaws.com/stage-2/record', {
+      title: 'New Todo',
+      completed: false
+    })
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+}
+
+
+// AXIOS INSTANCE
+const axiosInstance = axios.create({
+  // Other custom settings
+  baseURL: 'https://jsonplaceholder.typicode.com'
+});
+// axiosInstance.get('/comments').then(res => showOutput(res));
+
+// Show output in browser
+function showOutput(res) {
+  console.log(res.data)
+
+  var paragraph = document.getElementById("res");
+  var text = document.createTextNode(`Hello, Visitor #${res}!`);
+  paragraph.appendChild(text);
+}
+
+getTodos()
+addTodo()
