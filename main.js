@@ -1,7 +1,7 @@
 // GET REQUEST
 function getTodos() {
   axios
-  .get('https://6n9mqiawsc.execute-api.us-east-1.amazonaws.com/stage-2/record', {
+  .get('https://ncsbce05rg.execute-api.us-east-1.amazonaws.com/beta', {
     timeout: 5000
   })
   .then(res => {
@@ -15,7 +15,7 @@ function getTodos() {
 function addTodo() {
   console.log('addToDo - POST request')
   axios
-    .post('https://6n9mqiawsc.execute-api.us-east-1.amazonaws.com/stage-2/record', {
+    .post('https://ncsbce05rg.execute-api.us-east-1.amazonaws.com/beta', {
       title: 'New Todo',
       completed: false
     })
