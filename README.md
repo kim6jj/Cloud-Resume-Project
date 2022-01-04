@@ -8,4 +8,4 @@ I uploaded static web page files all on the root (index, css, etc). I then creat
 BackEnd: 
 
 AWS Code Pipeline: Instead of manually uploading latest changes to my S3 bucket, using AWS Code Commit would still require manual runs from repo to push to S3 bucket; I decided to use AWS Pipeline and connected to my GitHub repository (Rather than code commit). AWS Code Pipeline would be triggered and push all updates from my repository on Github to my S3 bucket.
-  *Ran into some issues as adding new files locally I'd need to add manually to git and push the updates; also after being pushed the S3, the CloudFront distro would need to be invalidated as updated S3 objects were not displaying.
+ -- Ran into some issues as adding new files locally I'd need to add manually to git and push the updates; also after being pushed the S3, the CloudFront distro would need to be invalidated as updated S3 objects were not displaying.
